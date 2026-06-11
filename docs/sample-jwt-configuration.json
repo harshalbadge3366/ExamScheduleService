@@ -1,0 +1,22 @@
+{
+  "jwtSettings": {
+    "issuer": "RFC.StudentPortal",
+    "audience": "ExamScheduleService",
+    "signingKey": "CHANGE_ME_TO_A_32_CHAR_MINIMUM_SECRET_KEY",
+    "expiryMinutes": 60
+  },
+  "requiredClaims": [
+    {
+      "type": "STUDENT_ID",
+      "value": "1001"
+    },
+    {
+      "type": "ACD_SESS_ID",
+      "value": "1"
+    }
+  ],
+  "mvcTokenSource": {
+    "preferred": "ClaimsIdentity claim named access_token",
+    "fallback": "Session[\"ApiJwtToken\"]"
+  }
+}

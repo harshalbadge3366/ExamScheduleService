@@ -1,0 +1,103 @@
+{
+  "info": {
+    "_postman_id": "d7ee80b1-392c-4d5f-80ff-cc8b5d42cb70",
+    "name": "ExamScheduleService",
+    "description": "Postman collection for the Student Exam Schedule Viewer API.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://localhost:7100"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "studentId",
+      "value": "1001"
+    },
+    {
+      "key": "acdSessId",
+      "value": "1"
+    },
+    {
+      "key": "subjectSearch",
+      "value": "CS"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "item": [
+    {
+      "name": "Get All Exam Schedules",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/ExamSchedule?studentId={{studentId}}&acdSessId={{acdSessId}}&subjectSearch={{subjectSearch}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ExamSchedule"
+          ],
+          "query": [
+            {
+              "key": "studentId",
+              "value": "{{studentId}}"
+            },
+            {
+              "key": "acdSessId",
+              "value": "{{acdSessId}}"
+            },
+            {
+              "key": "subjectSearch",
+              "value": "{{subjectSearch}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Upcoming Exam Schedules",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/ExamSchedule/upcoming?studentId={{studentId}}&acdSessId={{acdSessId}}",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "ExamSchedule",
+            "upcoming"
+          ],
+          "query": [
+            {
+              "key": "studentId",
+              "value": "{{studentId}}"
+            },
+            {
+              "key": "acdSessId",
+              "value": "{{acdSessId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

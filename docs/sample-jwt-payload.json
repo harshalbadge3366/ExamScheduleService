@@ -1,0 +1,9 @@
+{
+  "iss": "RFC.StudentPortal",
+  "aud": "ExamScheduleService",
+  "STUDENT_ID": "1001",
+  "ACD_SESS_ID": "1",
+  "sub": "1001",
+  "name": "Demo Student",
+  "exp": 1893456000
+}
