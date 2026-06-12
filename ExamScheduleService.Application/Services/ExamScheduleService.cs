@@ -33,13 +33,13 @@ public sealed class ExamScheduleService : IExamScheduleService
 
     /// <inheritdoc />
     public async Task<IReadOnlyCollection<ExamScheduleDto>> GetScheduleAsync(ExamScheduleRequest request,CancellationToken cancellationToken = default)
-    {
-        ArgumentNullException.ThrowIfNull(request);
-
-        await _validator.ValidateAndThrowAsync(request,cancellationToken);
+    {     
 
         try
         {
+            ArgumentNullException.ThrowIfNull(request);
+
+            await _validator.ValidateAndThrowAsync(request, cancellationToken);
             var schedules = await _repository.GetScheduleAsync(request,cancellationToken);
 
             return _mapper.Map<IReadOnlyCollection<ExamScheduleDto>>(schedules.ToList());
@@ -55,12 +55,13 @@ public sealed class ExamScheduleService : IExamScheduleService
     /// <inheritdoc />
     public async Task<IReadOnlyCollection<ExamScheduleDto>> GetUpcomingScheduleAsync(ExamScheduleRequest request,CancellationToken cancellationToken = default)
     {
-            ArgumentNullException.ThrowIfNull(request);
-
-            await _validator.ValidateAndThrowAsync(request,cancellationToken);
+            
 
             try
             {
+                ArgumentNullException.ThrowIfNull(request);
+
+                await _validator.ValidateAndThrowAsync(request, cancellationToken);
                 var schedules = await _repository.GetScheduleAsync(request,cancellationToken);
 
                 var upcomingSchedules = schedules.Where(x => x.ExamDate.Date >= DateTime.Today).OrderBy(x => x.ExamDate).ThenBy(x => x.StartTime).ToList();

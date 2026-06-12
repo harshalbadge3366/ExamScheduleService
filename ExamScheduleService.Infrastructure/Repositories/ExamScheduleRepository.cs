@@ -47,7 +47,7 @@ public sealed class ExamScheduleRepository : IExamScheduleRepository
         }
         catch (SqlException ex)
         {
-            throw new ("An error occurred while retrieving exam schedule data.", ex);
+            throw new InvalidOperationException("An error occurred while retrieving exam schedule data.", ex);
         }
 
     }
